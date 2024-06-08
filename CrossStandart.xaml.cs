@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
 
 
 namespace CrossSharp
@@ -20,6 +21,15 @@ namespace CrossSharp
     /// </summary>
     public partial class CrossStandart : Window
     {
+        const int WS_EX_TRANSPARENT = 0x00000020;
+        const int GWL_EXSTYLE = (-20);
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowLong(IntPtr hwnd, int index);
+
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hwnd, int index, int newStyle);
+
         int countColor= 0;
         Line verticalLine;
         Line horizontalLine;
@@ -77,11 +87,21 @@ namespace CrossSharp
             horizontalLine.Y2 = this.Height / 2;
         }
 
-      
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+           
+            IntPtr hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+
+            int extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+
+            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
+        }
 
         private void HotkeyCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            // Закройте окно прицела и откройте MainWindow
+           
             this.Close();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
