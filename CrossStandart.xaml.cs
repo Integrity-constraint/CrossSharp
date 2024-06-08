@@ -32,7 +32,7 @@ namespace CrossSharp
             RoutedCommand hotkeyCommandExit = new RoutedCommand();
             hotkeyCommandcolor.InputGestures.Add(new KeyGesture(Key.F1, ModifierKeys.Shift));
             hotkeyCommand.InputGestures.Add(new KeyGesture(Key.F1, ModifierKeys.Control));
-            hotkeyCommandExit.InputGestures.Add(new KeyGesture(Key.F1, (ModifierKeys)Key.Escape));
+            hotkeyCommandExit.InputGestures.Add(new KeyGesture(Key.F2, ModifierKeys.Control));
             CommandBindings.Add(new CommandBinding(hotkeyCommand, HotkeyCommandExecuted));
             CommandBindings.Add(new CommandBinding(hotkeyCommandcolor, HotkeyCommandColorChange));
             CommandBindings.Add(new CommandBinding(hotkeyCommandExit, HotkeyCommandexitd));
