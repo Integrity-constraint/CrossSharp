@@ -30,13 +30,13 @@ namespace CrossSharp
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hwnd, int index, int newStyle);
 
-        int countColor= 0;
+        
         Line verticalLine;
         Line horizontalLine;
         public CrossStandart()
         {
             InitializeComponent();
-
+            this.Topmost = true;
             RoutedCommand hotkeyCommand = new RoutedCommand();
             RoutedCommand hotkeyCommandcolor = new RoutedCommand();
             RoutedCommand hotkeyCommandExit = new RoutedCommand();
