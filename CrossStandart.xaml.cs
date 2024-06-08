@@ -35,6 +35,7 @@ namespace CrossSharp
             hotkeyCommandExit.InputGestures.Add(new KeyGesture(Key.F1, (ModifierKeys)Key.Escape));
             CommandBindings.Add(new CommandBinding(hotkeyCommand, HotkeyCommandExecuted));
             CommandBindings.Add(new CommandBinding(hotkeyCommandcolor, HotkeyCommandColorChange));
+            CommandBindings.Add(new CommandBinding(hotkeyCommandExit, HotkeyCommandexitd));
 
             this.WindowStyle = WindowStyle.None;
             this.WindowState = WindowState.Maximized;
@@ -84,6 +85,11 @@ namespace CrossSharp
             this.Close();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+        }
+
+        private void HotkeyCommandexitd(object sender, ExecutedRoutedEventArgs e)
+        {
+           App.Current.Shutdown();
         }
 
         private void HotkeyCommandColorChange(object sender, ExecutedRoutedEventArgs e)
