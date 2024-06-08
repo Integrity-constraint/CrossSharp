@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CrossSharp"
         mc:Ignorable="d"
-        Title="CrossSharp 1.0" Height="250" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="CrossSharp 1.0" Height="250" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/sight.ico">
     <Grid>
         <Button Click="standard" Content="стандартный запуск" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" Width="180"/>
         <Button Click="custom" Content="редкатор прицела" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Width="180"/>
